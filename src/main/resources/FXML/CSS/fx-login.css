@@ -1,0 +1,21 @@
+ToolBar * {
+    -fx-text-fill: white;
+}
+
+#painel {
+    -fx-background-color: black;
+}
+
+#fechar {
+    -fx-background-color: transparent;
+}
+
+#fechar:hover {
+    -fx-background-color: grey;
+}
+
+VBox {
+    -fx-background-color: black;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px;
+}

@@ -30,7 +30,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         webEngine = webView.getEngine();
 
-        webEngine.load(Main.class.getResource("/HTML/login.html").toExternalForm());
+        webEngine.load(Main.class.getResource("/TELAS/HTML/login.html").toExternalForm());
 
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override

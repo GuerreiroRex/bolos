@@ -4,11 +4,13 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -25,7 +27,11 @@ public class GUI extends Application {
 
         Parent fxml = FXMLLoader.load(Main.class.getResource("/FXML/login.fxml"));
         // -----------------------------------------------------------------------
-        Scene scene = new Scene(fxml, 600, 400);
+        Rectangle2D tela = Screen.getPrimary().getVisualBounds();
+        double largura = tela.getWidth() * 0.25;
+        double altura = tela.getHeight() * 0.3;
+
+        Scene scene = new Scene(fxml, largura, altura);
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add(Main.class.getResource("/FXML/CSS/fx-login.css").toExternalForm());
         // -----------------------------------------------------------------------

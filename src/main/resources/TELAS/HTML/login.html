@@ -7,20 +7,53 @@
     <title>Fábrica de Bolos Vó Alzira - Login</title>
 
     <link rel="stylesheet" href="../CSS/login/login.css">
-    
+
     <script src="../JS/standart/code.jquery.com_jquery-3.7.1.js"></script>
-    <script src="../JS/login/login.js"></script>
-        
+    <script src="../JS/login/login.js" defer></script>
+
     </script>
 </head>
 
 <body>
 
-    <form>
-        <input id="usuario" type="text">
-        <input id="senha" type="password">
+    <form id="formulario">
+
+        <div class="page">
+            <div class="field field_v1">
+                <label for="usuario" class="ha-screen-reader">Nome de usuário</label>
+                <input id="usuario" class="field__input" placeholder="ex. admin">
+                <span class="field__label-wrap" aria-hidden="true">
+                  <span class="field__label">Nome de usuário</span>
+                </span>
+              </div>
+              <div class="field field_v1">
+                <label for="senha" class="ha-screen-reader">Senha</label>
+                <input id="senha" class="field__input" placeholder="ex. admin" type="password">
+                <span class="field__label-wrap" aria-hidden="true">
+                  <span class="field__label">Senha</span>
+                </span>
+              </div>
+        </div>
+
+        <!--
+                    <div class="centered">
+            <div class="grupo">
+                <label for="usuario">Nome de usuário</label>
+                <input id="usuario" name="usuario" type="text" required>
+                <div class="barra"></div>
+            </div>
+    
+            <div class="grupo">
+                <label for="senha">Senha</label>
+                <input id="senha" name="senha" type="password" required>
+            </div>
+        </div>
+          -->
+
+
+
+        <button id="enviar" type="submit">Enviar</button>
     </form>
-    <button onclick="confirmarlogin()">Enviar</button>
 </body>
 
 </html>

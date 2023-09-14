@@ -25,7 +25,7 @@ public class GUI extends Application {
 
         Parent fxml = FXMLLoader.load(Main.class.getResource("/FXML/login.fxml"));
         // -----------------------------------------------------------------------
-        Scene scene = new Scene(fxml, 300, 200);
+        Scene scene = new Scene(fxml, 600, 400);
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add(Main.class.getResource("/FXML/CSS/fx-login.css").toExternalForm());
         // -----------------------------------------------------------------------

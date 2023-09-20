@@ -6,11 +6,11 @@ ToolBar * {
     -fx-background-color: black;
 }
 
-#fechar {
+.botao {
     -fx-background-color: transparent;
 }
 
-#fechar:hover {
+.botao:hover {
     -fx-background-color: grey;
 }
 

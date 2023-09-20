@@ -11,7 +11,8 @@
         <ToolBar fx:id="painel">
             <Label fx:id="titulo" text="Fábrica de bolos Vó Alzira - Login"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="fechar" text="X" onAction="#clique"/>
+            <Button fx:id="minimizar" styleClass="botao" text="--" onAction="#cliqueMin"/>
+            <Button fx:id="fechar" styleClass="botao" text="X" onAction="#cliqueFechar"/>
         </ToolBar>
         <WebView fx:id="webView"/>
     </children>

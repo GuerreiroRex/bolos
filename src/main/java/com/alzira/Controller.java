@@ -44,8 +44,14 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void clique(ActionEvent mouseEvent) {
+    private void cliqueFechar(ActionEvent mouseEvent) {
         Stage stage = (Stage) fechar.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void cliqueMin(ActionEvent mouseEvent) {
+        Stage stage = (Stage) fechar.getScene().getWindow();
+        stage.setIconified(true);
     }
 }

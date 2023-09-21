@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ public class GUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/IMAGES/logo-alt.png")));
 
         Parent fxml = FXMLLoader.load(Main.class.getResource("/FXML/login.fxml"));
         // -----------------------------------------------------------------------

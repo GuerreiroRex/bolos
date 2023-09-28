@@ -1,0 +1,21 @@
+ToolBar * {
+    -fx-text-fill: white;
+}
+
+#painel {
+    -fx-background-color: black;
+}
+
+.botao {
+    -fx-background-color: transparent;
+}
+
+.botao:hover {
+    -fx-background-color: grey;
+}
+
+VBox:not(#caixa) {
+    -fx-background-color: black;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px;
+}

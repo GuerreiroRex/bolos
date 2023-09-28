@@ -11,7 +11,8 @@
         <ToolBar fx:id="painel">
             <Label fx:id="titulo" text="Fábrica de bolos Vó Alzira - Login"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="minimizar" styleClass="botao" text="&#9473;" onAction="#cliqueMin"/>
+            <Button fx:id="minimizar" styleClass="botao" text="&#9947;" onAction="#cliqueMin"/>
+            <Button fx:id="maximixar" styleClass="botao" text="&#9744;" onAction="#cliqueMax"/>
             <Button fx:id="fechar" styleClass="botao" text="&#9746;" onAction="#cliqueFechar"/>
         </ToolBar>
         <VBox fx:id="caixa">

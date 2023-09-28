@@ -1,11 +1,15 @@
 package com.alzira;
 
-public class Bridge {
-    public boolean confirmarlogin(String usuario, String senha) {
+import java.io.IOException;
 
-        //Coloque o codigo de validar aqui
+public class Bridge {
+    public void confirmarlogin(String usuario, String senha) throws IOException {
+
+        //Coloque o codigo de validar aqui, pode apagar porque isso não é útil
         System.out.println(usuario + " e " + senha);
 
-        return true;
+        if (true) /* Sua condicional para ver se o usuário e senha bate */ {
+            GUI.trocarTela("menu");
+        }
     }
 }

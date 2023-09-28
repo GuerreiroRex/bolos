@@ -2,9 +2,6 @@ package com.alzira;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
@@ -57,6 +54,7 @@ public class Controller implements Initializable {
         return webView;
     }
 
+
     @FXML
     private void cliqueFechar(ActionEvent mouseEvent) {
         Stage stage = (Stage) fechar.getScene().getWindow();
@@ -74,8 +72,10 @@ public class Controller implements Initializable {
         Stage stage = (Stage) fechar.getScene().getWindow();
         if (stage.isMaximized()) {
             stage.setMaximized(false);
+            quadro.getStyleClass().remove("grande");
         } else {
             stage.setMaximized(true);
+            quadro.getStyleClass().add("grande");
         }
     }
 }

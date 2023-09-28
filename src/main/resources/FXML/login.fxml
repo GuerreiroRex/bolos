@@ -15,8 +15,7 @@
             <Button fx:id="fechar" styleClass="botao" text="&#9746;" onAction="#cliqueFechar"/>
         </ToolBar>
         <VBox fx:id="caixa">
-
+            <!-- <WebView fx:id="webView"/> -->
         </VBox>
-        <!-- <WebView fx:id="webView"/> -->
     </children>
 </VBox>

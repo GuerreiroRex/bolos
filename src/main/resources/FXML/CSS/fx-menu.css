@@ -14,8 +14,15 @@ ToolBar * {
     -fx-background-color: grey;
 }
 
-VBox:not(#caixa) {
+VBox {
     -fx-background-color: black;
     -fx-background-radius: 10px;
-    -fx-padding: 8px;
+    -fx-padding: 5px;
 }
+
+
+VBox.grande {
+    -fx-background-radius: 0;
+    -fx-padding-top: 5px;
+}
+    

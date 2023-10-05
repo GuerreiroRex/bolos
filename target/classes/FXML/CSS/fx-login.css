@@ -1,9 +1,16 @@
+VBox {
+    -fx-background-color: #a83030;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+}
+
+
 ToolBar * {
     -fx-text-fill: white;
 }
 
 #painel {
-    -fx-background-color: black;
+    -fx-background-color: #a83030;
 }
 
 .botao {
@@ -12,10 +19,4 @@ ToolBar * {
 
 .botao:hover {
     -fx-background-color: grey;
-}
-
-VBox {
-    -fx-background-color: black;
-    -fx-background-radius: 10px;
-    -fx-padding: 5px;
 }

@@ -2,6 +2,7 @@ package com.alzira;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
@@ -18,6 +19,7 @@ import netscape.javascript.JSObject;
 
 public class Controller implements Initializable {
     private static WebView webView;
+    public static boolean loop = false;
 
     @FXML
     private VBox quadro;
@@ -37,7 +39,8 @@ public class Controller implements Initializable {
 
         WebEngine webEngine = webView.getEngine();
 
-        webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length-1].replace(".fxml", "") + ".html").toExternalForm());
+        webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", "") + ".html")
+                .toExternalForm());
 
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
@@ -45,6 +48,7 @@ public class Controller implements Initializable {
                 if (newState == State.SUCCEEDED) {
                     JSObject window = (JSObject) webEngine.executeScript("window");
                     window.setMember("Bridge", new Bridge());
+                    Controller.loop = true;
                 }
             }
         });
@@ -53,7 +57,6 @@ public class Controller implements Initializable {
     public static WebView getWebView() {
         return webView;
     }
-
 
     @FXML
     private void cliqueFechar(ActionEvent mouseEvent) {

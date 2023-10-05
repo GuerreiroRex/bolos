@@ -3,7 +3,7 @@ ToolBar * {
 }
 
 #painel {
-    -fx-background-color: black;
+    -fx-background-color: #a83030;
 }
 
 .botao {
@@ -15,7 +15,7 @@ ToolBar * {
 }
 
 VBox {
-    -fx-background-color: black;
+    -fx-background-color: #a83030;
     -fx-background-radius: 10px;
     -fx-padding: 5px;
 }
@@ -25,4 +25,3 @@ VBox.grande {
     -fx-background-radius: 0;
     -fx-padding-top: 5px;
 }
-    

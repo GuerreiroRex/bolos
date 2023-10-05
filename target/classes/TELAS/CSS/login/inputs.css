@@ -32,7 +32,7 @@ HELPERS
     -moz-appearance: none;
 
     font-family: inherit;
-    font-size: inherit;
+    font-size: 2vw;
 }
 
 .field__input:focus::-webkit-input-placeholder {

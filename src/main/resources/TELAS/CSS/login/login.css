@@ -1,12 +1,43 @@
-body {
-    background-color: white;
-    color: #a83030;
+html {
+    min-height: 100%;
+    min-width: 100%;
+    background: linear-gradient(#ff0000 0%, #ff9a00 10%, #d0de21 20%, #4fdc4a 30%, #3fdad8 40%, #2fc9e2 50%, #1c7fee 60%, #5f15f2 70%, #ba0cf8 80%, #fb07d9 90%, #ff0000 100%) 0 0/100% 200%;
+    animation: a 8s linear infinite;
+
+    --cor: #a83030;
+    --fonte: 2vw;
 }
 
+@keyframes a {
+    to {
+        background-position: 0 -200%
+    }
+}
+
+body {
+    background: url('../../../IMAGES/hexagono2.png');
+    background-size: 15vw;
+    color: white;
+
+    font-size: var(--fonte);
+}
+
+
 .box {
-    background-color: white;
-    border-style: dashed;
-    border-color: black;
-    border-width: 0.5vw;
-    margin: 5vw;
+    height: 70vh;
+    width: 40vw;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--cor);
+    border: black solid 5px;
+    border-radius: 1vw;
+}
+
+#enviar {
+    width: 80%;
+    margin: 10%;
 }

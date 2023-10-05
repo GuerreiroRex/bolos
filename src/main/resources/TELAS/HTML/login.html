@@ -2,42 +2,43 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fábrica de Bolos Vó Alzira - Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fábrica de Bolos Vó Alzira - Login</title>
 
-    <link rel="stylesheet" href="../CSS/login/inputs.css">
-    <link rel="stylesheet" href="../CSS/login/login.css">
+  <link rel="stylesheet" href="../CSS/standart/cdn.jsdelivr.net_npm_bootstrap@5.3.2_dist_css_bootstrap.min.css">
+  <script src="../JS/standart/cdn.jsdelivr.net_npm_bootstrap@5.3.2_dist_js_bootstrap.bundle.min.js"></script>
 
-    <script src="../JS/standart/code.jquery.com_jquery-3.7.1.js"></script>
-    <script src="../JS/login/login.js" defer></script>
-    </script>
+  <link rel="stylesheet" href="../CSS/login/inputs.css">
+  <link rel="stylesheet" href="../CSS/login/login.css">
+
+  <script src="../JS/standart/code.jquery.com_jquery-3.7.1.js"></script>
+  <script src="../JS/login/login.js" defer></script>
+  </script>
 </head>
 
 <body>
-
-    <form id="formulario">
-
-        <div class="box">
-          <div class="page">
-            <div class="field field_v1">
-                <label for="usuario" class="ha-screen-reader">Nome de usuário</label>
-                <input id="usuario" class="field__input" placeholder="ex. admin">
-                <span class="field__label-wrap" aria-hidden="true">
-                  <span class="field__label">Nome de usuário</span>
-                </span>
-              </div>
-              <div class="field field_v1">
-                <label for="senha" class="ha-screen-reader">Senha</label>
-                <input id="senha" class="field__input" placeholder="ex. admin" type="password">
-                <span class="field__label-wrap" aria-hidden="true">
-                  <span class="field__label">Senha</span>
-                </span>
-              </div>
+  <form id="formulario">
+    <div class="box">
+      <div class="page">
+        <div class="field field_v1">
+          <label for="usuario" class="ha-screen-reader">Nome de usuário</label>
+          <input id="usuario" class="field__input" placeholder="ex. admin">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Nome de usuário</span>
+          </span>
         </div>
+        <div class="field field_v1">
+          <label for="senha" class="ha-screen-reader">Senha</label>
+          <input id="senha" class="field__input" placeholder="ex. admin" type="password">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Senha</span>
+          </span>
         </div>
-        <button id="enviar" type="submit">Enviar</button>
-    </form>
+      </div>
+      <button id="enviar" type="submit" class="btn btn-success">Enviar</button>
+    </div>
+  </form>
 </body>
 
 </html>

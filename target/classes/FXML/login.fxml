@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.web.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.alzira.Controller">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.alzira.Controller" fx:id="quadro">
     <children>
         <ToolBar fx:id="painel">
             <Label fx:id="titulo" text="Fábrica de bolos Vó Alzira - Login"/>

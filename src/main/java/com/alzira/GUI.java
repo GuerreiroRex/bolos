@@ -14,6 +14,7 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.web.WebView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -56,9 +57,14 @@ public class GUI extends Application {
             });
         });
         
+        VBox quadro = (VBox) scene.lookup("#quadro");
         VBox vbox = (VBox) scene.lookup("#caixa");
         vbox.getChildren().clear();
-        vbox.getChildren().add(Controller.getWebView());
+        vbox.prefHeightProperty().bind((quadro.heightProperty()));
+
+        WebView webview = Controller.getWebView();
+        vbox.getChildren().add(webview);
+        webview.prefHeightProperty().bind((vbox.heightProperty()));
 
         stage.setScene(scene);
         stage.show();

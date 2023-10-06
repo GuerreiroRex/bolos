@@ -1,25 +1,26 @@
 html {
     min-height: 100%;
-    min-width: 100%;
-    background: linear-gradient(#ff0000 0%, #ff9a00 10%, #d0de21 20%, #4fdc4a 30%, #3fdad8 40%, #2fc9e2 50%, #1c7fee 60%, #5f15f2 70%, #ba0cf8 80%, #fb07d9 90%, #ff0000 100%) 0 0/100% 200%;
-    animation: a 8s linear infinite;
+    background-image:  url('../../../IMAGES/hexagono2.png'), linear-gradient(45deg, #a83030 45%, black 50%, #a83030 55%);
+    background-repeat: repeat, repeat;
+    background-size: 50px, 100vw 100vh;
+    
+    animation: anim 5s linear infinite;
 
     --cor: #a83030;
     --fonte: 2vw;
 }
 
-@keyframes a {
-    to {
-        background-position: 0 -200%
+@keyframes anim {
+    0% {
+        background-position: 0% 0%, 0% 0%;
+    }
+    100% {
+        background-position: 0% 0%, 100vw 0;
     }
 }
 
 body {
-    background: url('../../../IMAGES/hexagono2.png');
-    background-size: 15vw;
     color: white;
-
-    font-size: var(--fonte);
 }
 
 
@@ -32,12 +33,11 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 
-    background-color: var(--cor);
+    background-color: wheat;
     border: black solid 5px;
     border-radius: 1vw;
 }
 
-#enviar {
+.box input {
     width: 80%;
-    margin: 10%;
 }

@@ -1,2 +1,7 @@
+com\alzira\Controller.class
+com\alzira\ResizeHelper.class
+com\alzira\Controller$1.class
+com\alzira\Bridge.class
 com\alzira\GUI.class
+com\alzira\ResizeHelper$ResizeListener.class
 com\alzira\Main.class

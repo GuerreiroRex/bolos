@@ -8,6 +8,7 @@
     <artifactId>bolos</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <!-- mvn clean compile assembly:single -->
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -18,17 +19,17 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>20</version>
+            <version>22-ea+11</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>20</version>
+            <version>22-ea+11</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>20</version>
+            <version>22-ea+11</version>
         </dependency>
     </dependencies>
 

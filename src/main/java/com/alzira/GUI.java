@@ -39,8 +39,8 @@ public class GUI extends Application {
 
     public static void trocarTela(String nome) throws IOException {
         Rectangle2D tela = Screen.getPrimary().getVisualBounds();
-        double largura = tela.getWidth() * 0.25;
-        double altura = tela.getHeight() * 0.3;
+        double largura = tela.getWidth() * 0.5;
+        double altura = tela.getHeight() * 0.5;
 
         Parent fxml = FXMLLoader.load(Main.class.getResource("/FXML/" + nome + ".fxml"));
 
@@ -63,6 +63,7 @@ public class GUI extends Application {
         vbox.prefHeightProperty().bind((quadro.heightProperty()));
 
         WebView webview = Controller.getWebView();
+        webview.setVisible(false);
         vbox.getChildren().add(webview);
         webview.prefHeightProperty().bind((vbox.heightProperty()));
 

@@ -42,13 +42,15 @@ public class Controller implements Initializable {
         webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", "") + ".html")
                 .toExternalForm());
 
+        Bridge bridge = new Bridge();
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observableValue, State oldState, State newState) {
                 if (newState == State.SUCCEEDED) {
                     JSObject window = (JSObject) webEngine.executeScript("window");
-                    window.setMember("Bridge", new Bridge());
-                    Controller.loop = true;
+                    window.setMember("Bridge", bridge);
+
+                    Controller.webView.setVisible(true);
                 }
             }
         });

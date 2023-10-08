@@ -7,7 +7,6 @@ html {
     animation: anim 5s linear infinite;
 
     --cor: #a83030;
-    --fonte: 2vw;
 }
 
 @keyframes anim {
@@ -19,12 +18,7 @@ html {
     }
 }
 
-body {
-    color: white;
-}
-
-
-.box {
+#caixa {
     height: 70vh;
     width: 40vw;
 
@@ -36,8 +30,9 @@ body {
     background-color: wheat;
     border: black solid 5px;
     border-radius: 1vw;
-}
 
-.box input {
-    width: 80%;
+    display: grid;
+    place-items: center;
+
+    font-size: 2vw;
 }

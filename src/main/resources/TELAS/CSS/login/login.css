@@ -1,8 +1,8 @@
 html {
     min-height: 100%;
-    background-image:  url('../../../IMAGES/hexagono2.png'), linear-gradient(45deg, #a83030 45%, black 50%, #a83030 55%);
+    background-image:  url('../../../IMAGES/hexagono.png'), linear-gradient(-45deg, #a83030 49%, black 1%, #a83030 51%);
     background-repeat: repeat, repeat;
-    background-size: 50px, 100vw 100vh;
+    background-size: 50px, 400% 400%;
     
     animation: anim 5s linear infinite;
 
@@ -15,7 +15,7 @@ html {
         background-position: 0% 0%, 0% 0%;
     }
     100% {
-        background-position: 0% 0%, 100vw 0;
+        background-position: 0% 0%, -100% 0;
     }
 }
 

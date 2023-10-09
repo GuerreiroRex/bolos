@@ -52,7 +52,7 @@ public class GUI extends Application {
         toolbar.setOnMousePressed(pressEvent -> {
             toolbar.setOnMouseDragged(dragEvent -> {
                 stage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
-                stage.setY(dragEvent.getScreenY()S - pressEvent.getSceneY());
+                stage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
             });
         });
         

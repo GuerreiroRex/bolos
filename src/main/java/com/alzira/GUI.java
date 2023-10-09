@@ -29,12 +29,11 @@ public class GUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/IMAGES/logo-alt.png")));
         stage = primaryStage;
 
         trocarTela("login");
-        
-
     }
 
     public static void trocarTela(String nome) throws IOException {
@@ -53,7 +52,7 @@ public class GUI extends Application {
         toolbar.setOnMousePressed(pressEvent -> {
             toolbar.setOnMouseDragged(dragEvent -> {
                 stage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
-                stage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+                stage.setY(dragEvent.getScreenY()S - pressEvent.getSceneY());
             });
         });
         

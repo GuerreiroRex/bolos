@@ -1,10 +1,10 @@
 html {
     min-height: 100%;
-    background-image:  url('../../../IMAGES/hexagono.png'), linear-gradient(-45deg, #a83030 49%, black 1%, #a83030 51%);
+    background-image:  url('../../../IMAGES/hexagono.png'), linear-gradient(-45deg, #a83030 48%, black, #a83030 52%);
     background-repeat: repeat, repeat;
     background-size: 50px, 400% 400%;
     
-    animation: anim 5s linear infinite;
+    animation: anim 6s linear infinite;
 
     --cor: #a83030;
 }
@@ -31,8 +31,10 @@ html {
     border: black solid 5px;
     border-radius: 1vw;
 
-    display: grid;
-    place-items: center;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    font-size: 2vw;
+    font-size: min(2vw, 25px);
+    overflow: scroll;
 }

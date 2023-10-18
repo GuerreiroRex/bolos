@@ -42,7 +42,7 @@ public class Controller implements Initializable {
         webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", "") + ".html")
                 .toExternalForm());
 
-        Bridge bridge = new Bridge();
+        Bridge bridge = new Bridge(webEngine);
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observableValue, State oldState, State newState) {

@@ -38,3 +38,7 @@ html {
     font-size: min(2vw, 25px);
     overflow: scroll;
 }
+
+.erro {
+    background-color: #a83030;
+}

@@ -4,6 +4,7 @@ ToolBar * {
 
 #painel {
     -fx-background-color: #a83030;
+    -fx-padding: 0px;
 }
 
 .botao {
@@ -14,15 +15,13 @@ ToolBar * {
     -fx-background-color: grey;
 }
 
-VBox:not(.grande) {
-    -fx-background-color: #66a830;
+VBox {
+    -fx-background-color: #a83030;
     -fx-background-radius: 10px;
     -fx-padding: 5px;
 }
 
-
 VBox.grande {
-    -fx-background-color: grey;
-    -fx-background-radius: 0;
-    -fx-padding: 15px 0 0 0;
+    -fx-background-radius: 0px;
+    -fx-padding: 0px;
 }

@@ -51,8 +51,10 @@ public class GUI extends Application {
         ToolBar toolbar = (ToolBar) scene.lookup("#painel");
         toolbar.setOnMousePressed(pressEvent -> {
             toolbar.setOnMouseDragged(dragEvent -> {
-                stage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
-                stage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+                if (!scene.lookup("#quadro").getStyleClass().contains ("grande")) {
+                    stage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
+                    stage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+                }
             });
         });
         

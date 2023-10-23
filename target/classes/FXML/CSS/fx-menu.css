@@ -15,13 +15,17 @@ ToolBar * {
     -fx-background-color: grey;
 }
 
-VBox {
+#quadro {
     -fx-background-color: #a83030;
     -fx-background-radius: 10px;
     -fx-padding: 5px;
 }
 
-VBox.grande {
+#quadro.grande {
     -fx-background-radius: 0px;
     -fx-padding: 0px;
+}
+
+#quadro.grande #painel {
+    -fx-padding: 5px;
 }

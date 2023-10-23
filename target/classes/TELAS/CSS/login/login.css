@@ -1,6 +1,7 @@
 html {
     min-height: 100%;
-    background-image:  url('../../../IMAGES/hexagono.png'), linear-gradient(-45deg, #a83030 48%, black, #a83030 52%);
+    background-color: #a83030;
+    background-image:  url('../../../IMAGES/hexagono.png'), linear-gradient(-45deg, #a83030 48%, rgba(0, 0, 0, 0.25), rgb(0, 0, 0), rgba(0, 0, 0, 0.25), #a83030 52%);
     background-repeat: repeat, repeat;
     background-size: 50px, 400% 400%;
     

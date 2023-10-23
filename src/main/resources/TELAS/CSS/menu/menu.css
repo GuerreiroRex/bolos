@@ -1,0 +1,47 @@
+html {
+    font-size: 2vw;
+}
+
+header {
+    background-color: #a83030;
+}
+
+.quadriculado {
+    height: 50px;
+    width: 100%;
+
+    background-image:  url('../../../IMAGES/hexagono.png'), linear-gradient(0deg, #a83030 35%, rgba(0, 0, 0, 0.25), rgb(0, 0, 0), rgba(0, 0, 0, 0.25), #a83030 65%);
+    background-repeat: repeat, repeat;
+    background-size: 35px, 400% 400%;
+    
+    animation: anim 3s linear infinite;
+
+    --cor: #a83030;
+}
+
+@keyframes anim {
+    0% {
+        background-position: 0% 0%, 0% 0%;
+    }
+    100% {
+        background-position: 0% 0%, 0% +100%;
+    }
+}
+
+#navegador {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#navegador button {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    border-radius: 1vw;
+}
+
+#navegador button:hover {
+    background-color: rgba(43, 255, 0, 0.63);/* , greenyellow; */
+}

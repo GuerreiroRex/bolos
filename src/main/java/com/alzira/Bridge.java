@@ -1,6 +1,8 @@
 package com.alzira;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import com.dao.LoginDAO;
 
 import javafx.scene.web.WebEngine;
 
@@ -9,17 +11,14 @@ public class Bridge {
 
     public Bridge(WebEngine motor) {
         webEngine = motor;
-    }
-
-    public void confirmarlogin(String usuario, String senha) throws IOException {
-
-        //Coloque o codigo de validar aqui, pode apagar porque isso não é útil
-        System.out.println(usuario + " e " + senha);
-
-        if (true) /* Sua condicional para ver se o usuário e senha bate */ {
+    }   
+    
+    public void confirmarlogin(String usuario, String senha) throws IOException, SQLException, ClassNotFoundException {
+        
+        if (LoginDAO.validaLogin(usuario, senha)) {
             GUI.trocarTela("menu");
         } else {
-            webEngine.executeScript("chamarInvalido()"); /* Chama no front-end a função chamar invalido */
+            webEngine.executeScript("chamarInvalido()");
         }
     }
 }

@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 public class Database {
     private static String jdbcURL = "jdbc:h2:file:./src/main/resources/DATABASE/database";
+    //private static String jdbcURL = "jdbc:h2:file:X:\\Alunos\\081210040\\database";
     private static String username = "SA";
     private static String password = "1234";
 
@@ -30,7 +31,9 @@ public class Database {
 
     public static ResultSet Ler(String sql) throws SQLException {
         Statement statement = connection.createStatement();
+
         ResultSet resultSet = statement.executeQuery(sql);
+        
 
         return resultSet;
     }

@@ -16,21 +16,22 @@ public class Bridge {
 
     public void confirmarlogin(String usuario, String senha) throws IOException, SQLException, ClassNotFoundException {
         Database.Conectar();
-        ResultSet restultado = Database.Ler("SELECT * FROM usuarios");
+        ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
 
         String db_username = null;
         String db_senha = null;
 
-        while (restultado.next()) {
-            db_username = restultado.getString("username");
-            db_senha = restultado.getString("senha");
+        if (resultado.next()) {
+           // Boolean validar = restultado.getBoolean(1);
+            db_username = resultado.getString("username");
+            db_senha = resultado.getString("senha");
 
-            //System.err.println();
+            System.out.println(db_username + " " + db_senha);
+        }
 
-            if (db_username.equals(usuario) & db_senha.equals(senha)) {
+        if (db_username.equals(usuario) & db_senha.equals(senha)) {
                 GUI.trocarTela("menu");
             }
-        }
         Database.Desconectar();
 
         /*

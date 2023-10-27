@@ -35,8 +35,6 @@ public class Controller implements Initializable {
 
         webView = new WebView();
 
-        System.out.println(location);
-
         WebEngine webEngine = webView.getEngine();
 
         webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", "") + ".html")

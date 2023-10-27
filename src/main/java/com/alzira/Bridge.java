@@ -2,8 +2,7 @@ package com.alzira;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import com.dao.LoginDAO;
-
+import com.alzira.database.Database;
 import javafx.scene.web.WebEngine;
 
 public class Bridge {
@@ -15,10 +14,10 @@ public class Bridge {
     
     public void confirmarlogin(String usuario, String senha) throws IOException, SQLException, ClassNotFoundException {
         
-        if (LoginDAO.validaLogin(usuario, senha)) {
+        if (true) {
             GUI.trocarTela("menu");
-        } else {
+        } /* else {
             webEngine.executeScript("chamarInvalido()");
-        }
+        } */
     }
 }

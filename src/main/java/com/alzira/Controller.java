@@ -37,7 +37,7 @@ public class Controller implements Initializable {
 
         WebEngine webEngine = webView.getEngine();
 
-        webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", "") + ".html")
+        webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", ".html"))
                 .toExternalForm());
 
         Bridge bridge = new Bridge(webEngine);

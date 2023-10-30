@@ -1,5 +1,5 @@
 html {
-    font-size: 2vw;
+    font-size: min(2vw, 18px);
 }
 
 header {
@@ -44,4 +44,12 @@ header {
 
 #navegador button:hover {
     background-color: rgba(43, 255, 0, 0.63);/* , greenyellow; */
+}
+
+.navbar-toggler {
+    height: 2vw; width: 2vw;
+}
+
+.off-canvas-alzira {
+    background-color: #a83030;
 }

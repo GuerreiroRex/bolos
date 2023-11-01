@@ -20,6 +20,7 @@ import netscape.javascript.JSObject;
 public class Controller implements Initializable {
     private static WebView webView;
     public static boolean loop = false;
+    private static Bridge bridge;
 
     @FXML
     private VBox quadro;
@@ -40,7 +41,7 @@ public class Controller implements Initializable {
         webEngine.load(Main.class.getResource("/TELAS/HTML/" + data[data.length - 1].replace(".fxml", ".html"))
                 .toExternalForm());
 
-        Bridge bridge = new Bridge(webEngine);
+        bridge = new Bridge();
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observableValue, State oldState, State newState) {

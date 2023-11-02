@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class Database {
     // private static String jdbcURL = "jdbc:h2:file:./src/main/resources/DATABASE/database";
     // private static String jdbcURL = "jdbc:h2:file:Z:\\bolos\\src\\main\\resources\\DATABASE\\database";
-    private static String jdbcURL = "jdbc:h2:file:X:\\Alunos\\081210040\\database";
+    private static String jdbcURL = "jdbc:h2:file:X:\\Alunos\\081210040\\database;AUTO_SERVER=TRUE";
     private static String username = "SA";
     private static String password = "1234";
 

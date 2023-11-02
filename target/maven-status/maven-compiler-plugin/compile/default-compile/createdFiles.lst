@@ -2,6 +2,7 @@ com\alzira\ResizeHelper.class
 com\alzira\GUI.class
 com\alzira\Controller.class
 com\alzira\database\Database.class
+com\alzira\Bridge$1.class
 com\alzira\Controller$1.class
 com\alzira\Bridge.class
 com\alzira\model\Usuario.class

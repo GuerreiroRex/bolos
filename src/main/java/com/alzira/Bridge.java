@@ -12,26 +12,36 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Bridge {
-    public void confirmarlogin(String usuario, String senha) throws IOException, SQLException, ClassNotFoundException {
-        Database.Conectar();
-        ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
+    public void confirmarlogin(String usuario, String senha) throws InterruptedException, SQLException, IOException {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Database.Conectar();
+                    ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
 
-        String db_username = null;
-        String db_senha = null;
+                    String db_username = null;
+                    String db_senha = null;
 
-        if (resultado.next()) {
-            // Esse método está todo errado, estou trazendo toda a tabela e verificando 1
-            // por 1
-            // Quem deveria retornar a validação é o próprio banco de dados, use
-            // resultado.GetBoolean()
-            db_username = resultado.getString("username");
-            db_senha = resultado.getString("senha");
-        }
+                    if (resultado.next()) {
+                        // Esse método está todo errado, estou trazendo toda a tabela e verificando 1
+                        // por 1
+                        // Quem deveria retornar a validação é o próprio banco de dados, use
+                        // resultado.GetBoolean()
+                        db_username = resultado.getString("username");
+                        db_senha = resultado.getString("senha");
+                    }
 
-        if (db_username.equals(usuario) & db_senha.equals(senha)) {
-            GUI.trocarTela("menu");
-        }
-        Database.Desconectar();
+                    if (db_username.equals(usuario) & db_senha.equals(senha)) {
+                        Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
+                        GUI.trocarTela_async("menu");
+                    }
+                    Database.Desconectar();
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
+            }
+        }).start();
 
         /*
          * else {
@@ -44,7 +54,7 @@ public class Bridge {
         GUI.trocarTela("cadastrousuario");
     }
 
-    public String ler_usuarios() throws JsonProcessingException, SQLException {
+    public String ler_usuarios() throws JsonProcessingException, SQLException, InterruptedException {
         List<Usuario> lista = new ArrayList<>();
 
         Database.Conectar();
@@ -71,7 +81,7 @@ public class Bridge {
         return json;
     }
 
-    public void inserir_usuario(String username, String senha) throws SQLException {
+    public void inserir_usuario(String username, String senha) throws SQLException, InterruptedException {
         Database.Conectar();
 
         try {

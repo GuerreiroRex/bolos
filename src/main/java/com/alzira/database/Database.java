@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Database {
-    // private static String jdbcURL = "jdbc:h2:file:./src/main/resources/DATABASE/database";
-    // private static String jdbcURL = "jdbc:h2:file:Z:\\bolos\\src\\main\\resources\\DATABASE\\database";
+    // private static String jdbcURL =
+    // "jdbc:h2:file:./src/main/resources/DATABASE/database";
+    // private static String jdbcURL =
+    // "jdbc:h2:file:Z:\\bolos\\src\\main\\resources\\DATABASE\\database";
     private static String jdbcURL = "jdbc:h2:file:X:\\Alunos\\081210040\\database;AUTO_SERVER=TRUE";
     private static String username = "SA";
     private static String password = "1234";
@@ -20,13 +22,10 @@ public class Database {
 
     private static Connection connection;
 
-    public static Connection Conectar() throws SQLException {
+    public static Connection Conectar() throws InterruptedException, SQLException {
+
         if (connection == null) {
-            try {
-                connection = DriverManager.getConnection(jdbcURL, username, password);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            connection = DriverManager.getConnection(jdbcURL, username, password);
         }
 
         return connection;

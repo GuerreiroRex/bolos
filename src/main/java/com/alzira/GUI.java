@@ -46,6 +46,9 @@ public class GUI extends Application {
         Scene scene = new Scene(fxml, largura, altura);
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add(Main.class.getResource("/FXML/CSS/fx-" + nome + ".css").toExternalForm());
+        //Thread.currentThread().getContextClassLoader().
+
+        
 
         // ------------------------------------------------------------------------
         ToolBar toolbar = (ToolBar) scene.lookup("#painel");
@@ -71,6 +74,52 @@ public class GUI extends Application {
         stage.setScene(scene);
         stage.show();
         ResizeHelper.addResizeListener(stage);
+    }
+
+    public static void trocarTela_async(String nome) throws IOException  {
+        Rectangle2D tela = Screen.getPrimary().getVisualBounds();
+        double largura = tela.getWidth() * 0.5;
+        double altura = tela.getHeight() * 0.5;
+
+        ClassLoader a = Thread.currentThread().getContextClassLoader();
+        Parent fxml = FXMLLoader.load(a.getResource("/FXML/" + nome + ".fxml"));
+
+        Scene scene = new Scene(fxml, largura, altura);
+        scene.setFill(Color.TRANSPARENT);
+        scene.getStylesheets().add(Thread.currentThread().getContextClassLoader().getResource("/FXML/CSS/fx-" + nome + ".css").toExternalForm());
+        //Thread.currentThread().getContextClassLoader().
+
+        System.out.println("Feito");
+
+        // ------------------------------------------------------------------------
+        ToolBar toolbar = (ToolBar) scene.lookup("#painel");
+        toolbar.setOnMousePressed(pressEvent -> {
+            toolbar.setOnMouseDragged(dragEvent -> {
+                if (!scene.lookup("#quadro").getStyleClass().contains ("grande")) {
+                    stage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
+                    stage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+
+                    System.out.println("Esperou");
+                }
+            });
+        });
+
+        System.out.println("Esperando");
+        
+        VBox quadro = (VBox) scene.lookup("#quadro");
+        VBox vbox = (VBox) scene.lookup("#caixa");
+        vbox.getChildren().clear();
+        vbox.prefHeightProperty().bind((quadro.heightProperty()));
+
+        WebView webview = Controller.getWebView();
+        webview.setVisible(false);
+        vbox.getChildren().add(webview);
+        webview.prefHeightProperty().bind((vbox.heightProperty()));
+
+        stage.setScene(scene);
+        stage.show();
+        ResizeHelper.addResizeListener(stage);
+        System.out.println("Terminado");
     }
 
     public static Scene getScene() {

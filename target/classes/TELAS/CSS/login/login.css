@@ -40,6 +40,20 @@ html {
     overflow: scroll;
 }
 
+#enviar {
+    position: relative;
+    bottom: 0;
+}
+
+#enviar:not(.carregando)::before {
+    text-align: center;
+    content: 'Entrar';
+}
+
+#enviar:not(.carregando) div {
+    display: none;
+}
+
 .erro {
     background-color: #a83030;
 }

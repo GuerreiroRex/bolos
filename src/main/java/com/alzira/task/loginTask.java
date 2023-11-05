@@ -34,7 +34,6 @@ public class loginTask extends Task<Void> {
 
             @Override
             public void handle(WorkerStateEvent event) {
-                System.out.println("Login incorreto");
                 Bridge.invalidarLogin();
             }
             
@@ -60,8 +59,7 @@ public class loginTask extends Task<Void> {
         Database.Desconectar();
 
         if (!(db_username.equals(usuario) & db_senha.equals(senha))) {
-            System.out.println("Falha 1");
-            throw new Exception("usuario ou senha incorretos");
+            throw new Exception("Validação de usuário ou senha negativa.");
         }
         return null;
     }

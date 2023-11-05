@@ -26,7 +26,7 @@ public class Bridge {
     }
 
     public static void invalidarLogin() {
-        webEngine.executeScript("teste()");
+        webEngine.executeScript("chamarInvalido()");
     }
 
 

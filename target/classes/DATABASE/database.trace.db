@@ -466,3 +466,30 @@ INSERT INTO usuarios (username, senha) VALUES (maik, 1234) [42122-224]
 	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
 	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-04 23:25:57.729560-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]IF EXISTS SELECT * FROM usuarios WHERE username='admin'"; SQL statement:
+IF EXISTS SELECT * FROM usuarios WHERE username='admin' [42000-224]
+2023-11-04 23:26:16.253618-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT [*]IF EXISTS * FROM usuarios WHERE username='admin'"; expected "DISTINCT, ALL, *, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+SELECT IF EXISTS * FROM usuarios WHERE username='admin' [42001-224]
+2023-11-04 23:26:19.734315-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT EXISTS [*]* FROM usuarios WHERE username='admin'"; expected "("; SQL statement:
+SELECT EXISTS * FROM usuarios WHERE username='admin' [42001-224]
+2023-11-04 23:26:32.742273-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EXISTS SELECT * FROM usuarios WHERE username='admin'"; SQL statement:
+EXISTS SELECT * FROM usuarios WHERE username='admin' [42000-224]
+2023-11-04 23:26:38.386650-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EXISTS (SELECT * FROM usuarios WHERE username='admin')"; SQL statement:
+EXISTS (SELECT * FROM usuarios WHERE username='admin') [42000-224]
+2023-11-04 23:26:51.562090-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EXISTS (SELECT username FROM usuarios WHERE username='admin')"; SQL statement:
+EXISTS (SELECT username FROM usuarios WHERE username='admin') [42000-224]
+2023-11-04 23:28:05.445729-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]IF (EXISTS(SELECT EXISTS username FROM usuarios WHERE username='admin'), 1, 0)"; SQL statement:
+IF (EXISTS(SELECT EXISTS username FROM usuarios WHERE username='admin'), 1, 0) [42000-224]
+2023-11-04 23:28:20.192388-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]IF (1, 1, 0)"; SQL statement:
+IF (1, 1, 0) [42000-224]
+2023-11-04 23:28:30.352293-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT [*]IF (1, 1, 0)"; expected "DISTINCT, ALL, *, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+SELECT IF (1, 1, 0) [42001-224]

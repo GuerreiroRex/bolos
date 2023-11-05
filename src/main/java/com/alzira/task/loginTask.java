@@ -49,7 +49,7 @@ public class loginTask extends Task<Void> {
         String db_username = "null";
         String db_senha = "null";
 
-        if (resultado.next()) {
+        while (resultado.next()) {
             // Esse método está todo errado, estou trazendo toda a tabela e verificando 1
             // por 1
             // Quem deveria retornar a validação é o próprio banco de dados, use

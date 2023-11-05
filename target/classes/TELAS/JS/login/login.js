@@ -3,5 +3,8 @@ $("#formulario").on("submit", function(e) {
 
     $("#enviar").addClass("carregando");
 
+    $("#enviar").toggleClass("btn-light");
+    $("#enviar").toggleClass("btn-warning");
+
     Bridge.confirmarlogin($("#usuario").val(), $("#senha").val());
 })

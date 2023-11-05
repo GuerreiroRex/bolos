@@ -23,19 +23,21 @@
 
 
   <div id="caixa">
-    <div>
-      <label for="usuario">Nome de usuário</label><br>
-      <input id="usuario" placeholder="ex. admin" form="formulario"><br>
+    <div id="dados">
+      <div>
+        <label for="usuario">Nome de usuário</label><br>
+        <input id="usuario" placeholder="ex. admin" form="formulario"><br>
+      </div>
+
+      <div>
+        <label for="senha">Senha</label><br>
+        <input id="senha" placeholder="ex. admin" type="password" form="formulario"><br>
+      </div>
     </div>
 
-    <div>
-      <label for="senha">Senha</label><br>
-      <input id="senha" placeholder="ex. admin" type="password" form="formulario"><br>
-    </div>
-
-    <button id="enviar" type="submit" form="formulario">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <button id="enviar" class="btn btn-light" type="submit" form="formulario">
+      <div class="spinner-border spinner-border-sm" role="status">
+        <span class="visually-hidden">Carregando...</span>
       </div>
     </button>
 

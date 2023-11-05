@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import com.alzira.Bridge;
 import com.alzira.GUI;
 import com.alzira.database.Database;
+
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;

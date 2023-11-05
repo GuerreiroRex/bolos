@@ -40,6 +40,14 @@ html {
     overflow: scroll;
 }
 
+#enviar.btn-light::before {
+    content: 'Entrar';
+}
+
+#enviar.btn-light div {
+    display: none;
+}
+
 .erro {
     background-color: #a83030;
 }

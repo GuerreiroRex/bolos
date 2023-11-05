@@ -5,50 +5,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.alzira.database.Database;
 import com.alzira.model.Usuario;
+import com.alzira.task.loginTask;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javafx.scene.web.WebEngine;
+
 public class Bridge {
-    public void confirmarlogin(String usuario, String senha) throws InterruptedException, SQLException, IOException {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Database.Conectar();
-                    ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
+    private static WebEngine webEngine;
 
-                    String db_username = null;
-                    String db_senha = null;
-
-                    if (resultado.next()) {
-                        // Esse método está todo errado, estou trazendo toda a tabela e verificando 1
-                        // por 1
-                        // Quem deveria retornar a validação é o próprio banco de dados, use
-                        // resultado.GetBoolean()
-                        db_username = resultado.getString("username");
-                        db_senha = resultado.getString("senha");
-                    }
-
-                    if (db_username.equals(usuario) & db_senha.equals(senha)) {
-                        Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
-                        GUI.trocarTela_async("menu");
-                    }
-                    Database.Desconectar();
-                } catch (Exception e) {
-                    // TODO: handle exception
-                }
-            }
-        }).start();
-
-        /*
-         * else {
-         * webEngine.executeScript("chamarInvalido()");
-         * }
-         */
+    public Bridge(WebEngine web) {
+        webEngine = web;
     }
+
+    public void confirmarlogin(String usuario, String senha) throws InterruptedException, SQLException, IOException {
+        Thread thread = new Thread(new loginTask(usuario, senha));
+        thread.start();
+    }
+
+    public static void invalidarLogin() {
+        webEngine.executeScript("teste()");
+    }
+
 
     public void acessar_cadastrousuario() throws IOException {
         GUI.trocarTela("cadastrousuario");

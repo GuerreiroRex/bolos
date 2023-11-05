@@ -1,5 +1,6 @@
 $("#formulario").on("submit", function(e) {
     e.preventDefault();
+    $("#mensagem").text("")
 
     $("#enviar").toggleClass("btn-light");
     $("#enviar").toggleClass("btn-warning");

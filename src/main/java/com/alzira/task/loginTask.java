@@ -36,12 +36,13 @@ public class loginTask extends Task<Void> {
             public void handle(WorkerStateEvent event) {
                 Bridge.invalidarLogin();
             }
-            
+
         });
     }
 
     @Override
     protected Void call() throws Exception {
+        Boolean validade = false;
         Database.Conectar();
         ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
 
@@ -55,12 +56,20 @@ public class loginTask extends Task<Void> {
             // resultado.GetBoolean()
             db_username = resultado.getString("username");
             db_senha = resultado.getString("senha");
-        }
-        Database.Desconectar();
 
-        if (!(db_username.equals(usuario) & db_senha.equals(senha))) {
+            if ((db_username.equals(usuario) & db_senha.equals(senha))) {
+                validade = true;
+                break;//throw new Exception("Validação de usuário ou senha negativa.");
+            }
+        }
+
+        if (!validade) {
             throw new Exception("Validação de usuário ou senha negativa.");
         }
+
+
+        Database.Desconectar();
+
         return null;
     }
 

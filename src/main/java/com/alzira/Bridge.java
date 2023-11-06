@@ -30,7 +30,6 @@ public class Bridge {
         webEngine.executeScript("chamarInvalido()");
     }
 
-
     public void acessar_cadastrousuario() throws IOException {
         GUI.trocarTela("cadastrousuario");
     }
@@ -58,7 +57,6 @@ public class Bridge {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
 
-        // new String[]{"a", "b"}
         return json;
     }
 

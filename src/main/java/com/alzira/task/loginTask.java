@@ -50,16 +50,12 @@ public class loginTask extends Task<Void> {
         String db_senha = "null";
 
         while (resultado.next()) {
-            // Esse método está todo errado, estou trazendo toda a tabela e verificando 1
-            // por 1
-            // Quem deveria retornar a validação é o próprio banco de dados, use
-            // resultado.GetBoolean()
             db_username = resultado.getString("username");
             db_senha = resultado.getString("senha");
 
             if ((db_username.equals(usuario) & db_senha.equals(senha))) {
                 validade = true;
-                break;//throw new Exception("Validação de usuário ou senha negativa.");
+                break;
             }
         }
 

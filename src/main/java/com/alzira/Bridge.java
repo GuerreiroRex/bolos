@@ -38,7 +38,7 @@ public class Bridge {
         List<Usuario> lista = new ArrayList<>();
 
         Database.Conectar();
-        ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
+        ResultSet resultado = Database.Ler("SELECT * FROM login");
 
         String db_username = null;
         String db_senha = null;
@@ -64,7 +64,7 @@ public class Bridge {
         Database.Conectar();
 
         try {
-            Database.Executar("INSERT INTO usuarios (username, senha) VALUES ('" + username + "', '" + senha + "')");
+            Database.Executar("INSERT INTO login (username, senha) VALUES ('" + username + "', '" + senha + "')");
         } catch (Exception e) {
             System.out.println(e);
         }

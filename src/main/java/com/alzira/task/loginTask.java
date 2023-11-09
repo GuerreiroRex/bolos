@@ -44,7 +44,7 @@ public class loginTask extends Task<Void> {
     protected Void call() throws Exception {
         Boolean validade = false;
         Database.Conectar();
-        ResultSet resultado = Database.Ler("SELECT * FROM usuarios");
+        ResultSet resultado = Database.Ler("SELECT * FROM login");
 
         String db_username = "null";
         String db_senha = "null";
@@ -63,10 +63,8 @@ public class loginTask extends Task<Void> {
             throw new Exception("Validação de usuário ou senha negativa.");
         }
 
-
         Database.Desconectar();
 
         return null;
     }
-
 }

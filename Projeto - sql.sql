@@ -1,24 +1,24 @@
 use Projeto_EC6
 
 CREATE TABLE Login (
-    LoginID INT PRIMARY KEY IDENTITY(1,1),
+    LoginID INT AUTO_INCREMENT PRIMARY KEY,
     Username VARCHAR(50) NOT NULL UNIQUE,
-    Senha VARCHAR(100) NOT NULL -- Armazenará a senha como texto simples
+    Senha VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Categorias (
-    CategoriaID INT PRIMARY KEY IDENTITY(1,1),
+    CategoriaID INT AUTO_INCREMENT PRIMARY KEY,
     NomeCategoria VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Ingredientes (
-    IngredienteID INT PRIMARY KEY IDENTITY(1,1),
+    IngredienteID INT AUTO_INCREMENT PRIMARY KEY,
     NomeIngrediente VARCHAR(100) NOT NULL,
     PrecoUnitario DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE Produtos (
-    ProdutoID INT PRIMARY KEY IDENTITY(1,1),
+    ProdutoID INT AUTO_INCREMENT PRIMARY KEY,
     NomeProduto VARCHAR(100) NOT NULL,
     CategoriaID INT,
     CustoIngredientes DECIMAL(10, 2) NOT NULL,
@@ -28,13 +28,13 @@ CREATE TABLE Produtos (
 );
 
 CREATE TABLE Compras (
-    CompraID INT PRIMARY KEY IDENTITY(1,1),
+    CompraID INT AUTO_INCREMENT PRIMARY KEY,
     DataCompra DATETIME NOT NULL,
     ValorTotal DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE DetalhesCompra (
-    DetalheCompraID INT PRIMARY KEY IDENTITY(1,1),
+    DetalheCompraID INT AUTO_INCREMENT PRIMARY KEY,
     CompraID INT,
     ProdutoID INT,
     Quantidade INT NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE DetalhesCompra (
 CREATE TABLE ProdutosIngredientes (
     ProdutoID INT,
     IngredienteID INT,
-    Quantidade DECIMAL(10, 2), -- Quantidade de cada ingrediente por produto
+    Quantidade DECIMAL(10, 2),
     PRIMARY KEY (ProdutoID, IngredienteID),
     FOREIGN KEY (ProdutoID) REFERENCES Produtos(ProdutoID),
     FOREIGN KEY (IngredienteID) REFERENCES Ingredientes(IngredienteID)

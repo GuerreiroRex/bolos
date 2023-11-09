@@ -493,3 +493,6 @@ IF (1, 1, 0) [42000-224]
 2023-11-04 23:28:30.352293-03:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT [*]IF (1, 1, 0)"; expected "DISTINCT, ALL, *, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
 SELECT IF (1, 1, 0) [42001-224]
+2023-11-09 00:24:34.559755-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USUARIOS" not found; SQL statement:
+INSERT INTO usuarios (username, senha) VALUES ('undefined', 'undefined') [42102-224]

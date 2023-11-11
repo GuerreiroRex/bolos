@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import com.alzira.Bridge;
 import com.alzira.GUI;
 import com.alzira.database.Database;
+import com.alzira.database.LoginDAO;
 
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
@@ -43,28 +44,31 @@ public class loginTask extends Task<Void> {
     @Override
     protected Void call() throws Exception {
         Boolean validade = false;
-        Database.Conectar();
-        ResultSet resultado = Database.Ler("SELECT * FROM login");
-
-        String db_username = "null";
-        String db_senha = "null";
-
-        while (resultado.next()) {
-            db_username = resultado.getString("username");
-            db_senha = resultado.getString("senha");
-
-            if ((db_username.equals(usuario) & db_senha.equals(senha))) {
-                validade = true;
-                break;
-            }
-        }
-
+//        Database.Conectar();
+//        ResultSet resultado = Database.Ler("SELECT * FROM login");
+//
+//        String db_username = "null";
+//        String db_senha = "null";
+//
+//        while (resultado.next()) {
+//            db_username = resultado.getString("username");
+//            db_senha = resultado.getString("senha");
+//
+//            if ((db_username.equals(usuario) & db_senha.equals(senha))) {
+//                validade = true;
+//                break;
+//            }
+//        }
+        LoginDAO loginDAO = new LoginDAO();
+        ResultSet rsLoginDAO = loginDAO.verificaLogin(usuario, senha);
+        
+        if(rsLoginDAO.next())
+            validade = true;
+        
         if (!validade) {
             throw new Exception("Validação de usuário ou senha negativa.");
         }
-
-        Database.Desconectar();
-
+//        Database.Desconectar();
         return null;
     }
 }

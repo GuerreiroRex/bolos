@@ -1,12 +1,8 @@
 
 package com.alzira.database;
 
-import java.io.IOException;
 import java.sql.ResultSet;
 
-import com.alzira.Bridge;
-import com.alzira.GUI;
-import com.alzira.database.Database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 

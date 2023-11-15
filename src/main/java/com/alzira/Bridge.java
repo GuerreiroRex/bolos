@@ -2,12 +2,10 @@ package com.alzira;
 
 import com.alzira.database.CategoriaDAO;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.alzira.database.Database;
 import com.alzira.database.ProdutoDAO;
 import com.alzira.database.UsuarioDAO;
 import com.alzira.model.CategoriaModel;
@@ -25,7 +23,8 @@ public class Bridge {
     public Bridge(WebEngine web) {
         webEngine = web;
     }
-// *********************** LOGIN
+
+    // *********************** LOGIN
     public void confirmarlogin(String usuario, String senha) throws InterruptedException, SQLException, IOException {
         Thread thread = new Thread(new loginTask(usuario, senha));
         thread.start();
@@ -34,8 +33,8 @@ public class Bridge {
     public static void invalidarLogin() {
         webEngine.executeScript("chamarInvalido()");
     }
-    
-// *********************** USUARIO
+
+    // *********************** USUARIO
     public void acessar_cadastrousuario() throws IOException {
         GUI.trocarTela("cadastrousuario");
     }
@@ -45,8 +44,6 @@ public class Bridge {
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         lista = usuarioDAO.execSelect();
-
-        System.out.println(lista);
 
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
@@ -60,46 +57,47 @@ public class Bridge {
         usuarioDAO.InserirUsuario(username, senha);
     }
 
-// *********************** PRODUTO
+    // *********************** PRODUTO
     public String ler_produtos() throws JsonProcessingException, SQLException, InterruptedException {
         List<ProdutoModel> lista = new ArrayList<>();
 
         ProdutoDAO produtoDAO = new ProdutoDAO();
         lista = produtoDAO.execSelect();
 
-        System.out.println(lista);
-
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
 
         return json;
     }
-    
-    public void inserir_produto(String nomeProduto, Integer categoriaID, Double custoIngredientes, Double margemLucro, Double precoFinal) throws SQLException, InterruptedException {
+
+    public void inserir_produto(String nomeProduto, Integer categoriaID, Double custoIngredientes, Double margemLucro,
+            Double precoFinal) throws SQLException, InterruptedException {
 
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.InserirProduto(nomeProduto, categoriaID, custoIngredientes, margemLucro, precoFinal);
     }
-    
-// *********************** CATEGORIA
-        public String ler_categorias() throws JsonProcessingException, SQLException, InterruptedException {
+
+    // *********************** CATEGORIA
+    public String ler_categorias() throws JsonProcessingException, SQLException, InterruptedException {
         List<CategoriaModel> lista = new ArrayList<>();
 
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         lista = categoriaDAO.execSelect();
 
-        System.out.println(lista);
-
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
 
         return json;
     }
-    
+
     public void inserir_categoria(String nomeCategoria) throws SQLException, InterruptedException {
 
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         categoriaDAO.InserirCategoria(nomeCategoria);
     }
-    
+
+    // ***********************
+    public void adicionar_carrinho(Integer id) throws SQLException, InterruptedException {
+        Carrinho.adicionarProduto(id);
+    }
 }

@@ -64,12 +64,12 @@ public class ProdutoModel {
         this.precoFinal = precoFinal;
     }
 
-    public ProdutoModel(String c_nomeProduto, Integer c_categoriaID, Double c_custoIngredientes, Double c_margemLucro, Double c_precoFinal) {
+    public ProdutoModel(Integer c_id, String c_nomeProduto, Integer c_categoriaID, Double c_custoIngredientes, Double c_margemLucro, Double c_precoFinal) {
+        this.ID = c_id;
         this.nomeProduto = c_nomeProduto;
         this.categoriaID = c_categoriaID;
         this.custoIngredientes = c_custoIngredientes;
         this.margemLucro = c_margemLucro;
         this.precoFinal = c_precoFinal;
     }
-
 }

@@ -28,20 +28,22 @@ public class ProdutoDAO {
         Database.Conectar();
         ResultSet resultado = Database.Ler("SELECT * FROM produtos");
 
+        Integer db_id = null;
         String db_nomeProduto = null;
         Integer db_categoriaID = null;
         Double db_custoIngrediente = null;
         Double db_margemLucro = null;
         Double db_precoFinal = null;
 
-        while (resultado.next()) {
+        while (resultado.next()) {            
+            db_id = resultado.getInt("produtoid");
             db_nomeProduto = resultado.getString("nomeproduto");
             db_categoriaID = resultado.getInt("categoriaid");
             db_custoIngrediente = resultado.getDouble("custoingredientes");
             db_margemLucro = resultado.getDouble("margemlucro");
             db_precoFinal = resultado.getDouble("precofinal");
     
-            lista.add(new ProdutoModel(db_nomeProduto, db_categoriaID, db_custoIngrediente, db_margemLucro, db_precoFinal));
+            lista.add(new ProdutoModel(db_id, db_nomeProduto, db_categoriaID, db_custoIngrediente, db_margemLucro, db_precoFinal));
         }
         
         Database.Desconectar();

@@ -502,3 +502,121 @@ INSERT INTO ProdutosIngredientes (ProdutoID, IngredienteID, Quantidade) VALUES
 (1, 1, 2), -- Bolo de Chocolate Simples - Farinha de Trigo
 (1, 2, 1), -- Bolo de Chocolate Simples - Açúcar
 (1, 3, 3), -- Bolo de Chocolate Simples - Ovos [42001-224]
+2023-11-17 15:55:53.776603-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "CATEGORIAID"; SQL statement:
+CREATE VIEW VISUALIZAPRODUTO AS (
+SELECT
+A.PRODUTOID,
+NOMEPRODUTO,
+CATEGORIAID,
+NOMECATEGORIA,
+CUSTOINGREDIENTES,
+MARGEMLUCRO,
+PRECOFINAL,
+NOMEINGREDIENTE
+FROM  PRODUTOS AS A
+INNER JOIN CATEGORIAS AS B ON A.CATEGORIAID = B.CATEGORIAID
+INNER JOIN PRODUTOSINGREDIENTES AS C ON A.PRODUTOID = C.PRODUTOID
+INNER JOIN INGREDIENTES AS D ON C.INGREDIENTEID = D.INGREDIENTEID
+) [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parseCreateView(Parser.java:7153)
+	at org.h2.command.Parser.parseCreate(Parser.java:6350)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-17 17:20:54.912831-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The result set is not scrollable and can not be reset. You may need to use conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ..). [90128-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcResultSet.resetResult(JdbcResultSet.java:3617)
+	at org.h2.jdbc.JdbcResultSet.relative(JdbcResultSet.java:3210)
+	at org.h2.jdbc.JdbcResultSet.previous(JdbcResultSet.java:3237)
+	at com.alzira.database.ProdutoDAO.execSelect(ProdutoDAO.java:65)
+	at com.alzira.Bridge.ler_produtos(Bridge.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at com.sun.webkit.MethodHelper.invoke(MethodHelper.java:84)
+	at com.sun.webkit.Utilities.lambda$fwkInvokeWithContext$1(Utilities.java:124)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at com.sun.webkit.Utilities.fwkInvokeWithContext(Utilities.java:123)
+	at com.sun.webkit.Timer.twkFireTimerEvent(Native Method)
+	at com.sun.webkit.Timer.fireTimerEvent(Timer.java:84)
+	at com.sun.webkit.Timer.notifyTick(Timer.java:65)
+	at javafx.scene.web.WebEngine$PulseTimer.lambda$static$0(WebEngine.java:1205)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-17 17:20:54.926877-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The result set is not scrollable and can not be reset. You may need to use conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ..). [90128-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcResultSet.resetResult(JdbcResultSet.java:3617)
+	at org.h2.jdbc.JdbcResultSet.relative(JdbcResultSet.java:3210)
+	at org.h2.jdbc.JdbcResultSet.previous(JdbcResultSet.java:3237)
+	at com.alzira.database.ProdutoDAO.execSelect(ProdutoDAO.java:65)
+	at com.alzira.Bridge.ler_produtos(Bridge.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at com.sun.webkit.MethodHelper.invoke(MethodHelper.java:84)
+	at com.sun.webkit.Utilities.lambda$fwkInvokeWithContext$1(Utilities.java:124)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at com.sun.webkit.Utilities.fwkInvokeWithContext(Utilities.java:123)
+	at com.sun.webkit.Timer.twkFireTimerEvent(Native Method)
+	at com.sun.webkit.Timer.fireTimerEvent(Timer.java:84)
+	at com.sun.webkit.Timer.notifyTick(Timer.java:65)
+	at javafx.scene.web.WebEngine$PulseTimer.lambda$static$0(WebEngine.java:1205)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:833)

@@ -1,6 +1,6 @@
+com\alzira\database\CategoriaDAO.class
 com\alzira\database\ProdutoDAO.class
 com\alzira\database\UsuarioDAO.class
 com\alzira\model\ProdutoModel.class
 com\alzira\database\LoginDAO.class
 com\alzira\model\CategoriaModel.class
-com\alzira\database\CategoriaDAO.class

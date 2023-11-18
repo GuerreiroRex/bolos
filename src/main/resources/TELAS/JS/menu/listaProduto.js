@@ -1,8 +1,8 @@
 let num_pagina = 1;
-let por_pagina = 2;
+let por_pagina = 6;
 let lista;
 
-function montarBarraCOntrole(elemento) {
+function montarBarraControle(elemento) {
     let barraControle = document.createElement("div");
     let adicionar = document.createElement("button");
     let remover = document.createElement("button");
@@ -15,7 +15,11 @@ function montarBarraCOntrole(elemento) {
     remover.classList.add("barra-remover");
 
     adicionar.addEventListener("click", () => {
-        Bridge.adicionar_carrinho(elemento.ID);
+        Bridge.adicionar_carrinho(elemento.produtoID.toString());
+    });
+
+    remover.addEventListener("click", () => {
+        Bridge.remover_carrinho(elemento.produtoID.toString());
     });
 
     const listaControle = [adicionar, remover];
@@ -36,7 +40,7 @@ async function listar_produto(nova_lista) {
 
         let titulo = document.createElement("p");
         let preco = document.createElement("p");
-        let barraControle = montarBarraCOntrole(elemento);;
+        let barraControle = montarBarraControle(elemento);;
 
 
         titulo.innerHTML = elemento.nomeProduto;
@@ -59,8 +63,7 @@ async function listar_produto(nova_lista) {
 function paginar() {
     nova_lista = lista.slice((num_pagina - 1) * por_pagina, num_pagina * por_pagina);
 
-    $("#container").html("");
-    $("#container").append("<p>" + por_pagina + "</p>");
+    $("#container").html("");    
     listar_produto(nova_lista).then();
 }
 

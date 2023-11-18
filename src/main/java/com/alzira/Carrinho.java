@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrinho {
-    public static List<Integer> lista = new ArrayList<>();
+    public static List<String> lista = new ArrayList<>();
     
-    public static void adicionarProduto(Integer id) {
+    public static void adicionarProduto(String id) {
         lista.add(id);
     }
 
-    public static void removerProduto(Integer id) {
+    public static void removerProduto(String id) {
         lista.remove(id);
     }
 

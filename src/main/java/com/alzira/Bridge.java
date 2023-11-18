@@ -97,7 +97,11 @@ public class Bridge {
     }
 
     // ***********************
-    public void adicionar_carrinho(Integer id) throws SQLException, InterruptedException {
+    public void adicionar_carrinho(String id) throws SQLException, InterruptedException {
         Carrinho.adicionarProduto(id);
+    }
+
+    public void remover_carrinho(String id) throws SQLException, InterruptedException {
+        Carrinho.removerProduto(id);
     }
 }

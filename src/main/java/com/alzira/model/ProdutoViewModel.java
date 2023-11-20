@@ -2,10 +2,6 @@ package com.alzira.model;
 
 import java.util.List;
 
-/**
- *
- * @author Renanzed
- */
 public class ProdutoViewModel {
     public Integer produtoID;
     public String nomeProduto;
@@ -90,6 +86,4 @@ public class ProdutoViewModel {
         this.precoFinal = c_precoFinal;
         this.nomeIngrediente = c_nomeIngrediente;
     }
-    
-    
 }

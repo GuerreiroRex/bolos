@@ -1,6 +1,5 @@
 package com.alzira.model;
 
-
 public class CategoriaModel {
     public Integer categoriaID;
     public String NomeCategoria; 

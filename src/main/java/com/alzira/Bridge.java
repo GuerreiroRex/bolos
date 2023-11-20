@@ -1,15 +1,17 @@
 package com.alzira;
 
-import com.alzira.database.CategoriaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.alzira.database.CategoriaDAO;
 import com.alzira.database.ProdutoDAO;
 import com.alzira.database.UsuarioDAO;
+import com.alzira.database.CarrinhoDAO;
 import com.alzira.model.CategoriaModel;
 import com.alzira.model.ProdutoModel;
+import com.alzira.model.CarrinhoModel;
 import com.alzira.model.Usuario;
 import com.alzira.task.loginTask;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -71,7 +73,6 @@ public class Bridge {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
 
-        System.out.println(json);
         return json;
     }
 
@@ -101,12 +102,24 @@ public class Bridge {
         categoriaDAO.InserirCategoria(nomeCategoria);
     }
 
-    // ***********************
+    // *********************** CARRINHO
     public void adicionar_carrinho(String id) throws SQLException, InterruptedException {
         Carrinho.adicionarProduto(id);
     }
 
     public void remover_carrinho(String id) throws SQLException, InterruptedException {
         Carrinho.removerProduto(id);
+    }
+
+    public String ler_carrinho() throws JsonProcessingException,SQLException, InterruptedException {
+        List<CarrinhoModel> lista = new ArrayList<>();
+    
+        CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
+        lista = carrinhoDAO.execSelect();
+    
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(lista);
+   
+        return json;
     }
 }

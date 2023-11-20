@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.alzira.model;
 
-/**
- *
- * @author Renanzed
- */
 public class ProdutoModel {
     public Integer ID;
     public String nomeProduto;

@@ -1,0 +1,31 @@
+ToolBar * {
+    -fx-text-fill: white;
+}
+
+#painel {
+    -fx-background-color: #a83030;
+    -fx-padding: 0px;
+}
+
+.botao {
+    -fx-background-color: transparent;
+}
+
+.botao:hover {
+    -fx-background-color: grey;
+}
+
+#quadro {
+    -fx-background-color: #a83030;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+}
+
+#quadro.grande {
+    -fx-background-radius: 0px;
+    -fx-padding: 0px;
+}
+
+#quadro.grande #painel {
+    -fx-padding: 5px;
+}

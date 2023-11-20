@@ -70,7 +70,7 @@ header {
     flex-grow: 1;
     width: 33%;
 
-    height: 10vw;
+    
     margin: 1vw;
     padding: 0.5vw;
 
@@ -94,3 +94,28 @@ header {
 .produto-preco {
     display: block;
 }
+
+.barra-controle {
+    display: flex;
+    justify-content: space-around;
+}
+
+.barra-controle button:not(.botao) {
+    --tamanho: max(5vw, 16px);
+    width: var(--tamanho);
+    height: var(--tamanho);
+    font-size: 2vw;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+/*
+.barra-adicionar {
+    background-color: green;
+}
+
+.barra-remover {
+    background-color: red;
+}
+*/

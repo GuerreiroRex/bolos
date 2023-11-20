@@ -39,6 +39,10 @@ public class Bridge {
         GUI.trocarTela("cadastrousuario");
     }
 
+     public void acessar_carrinho() throws IOException {
+        GUI.trocarTela("carrinho");
+    }
+
     public String ler_usuarios() throws JsonProcessingException, SQLException, InterruptedException {
         List<Usuario> lista = new ArrayList<>();
 
@@ -67,6 +71,7 @@ public class Bridge {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
 
+        System.out.println(json);
         return json;
     }
 

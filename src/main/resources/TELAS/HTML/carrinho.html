@@ -11,41 +11,40 @@
     <link rel="stylesheet" href="../CSS/standart/cdn.jsdelivr.net_npm_bootstrap@5.3.2_dist_css_bootstrap.min.css">
     <script src="../JS/standart/cdn.jsdelivr.net_npm_bootstrap@5.3.2_dist_js_bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="../CSS/cadastrousuario/cadastrousuario.css">
+    <link rel="stylesheet" href="../CSS/carrinho/carrinho.css">
 
     <script src="../JS/standart/code.jquery.com_jquery-3.7.1.js"></script>
-    <script src="../JS/cadastrousuario/cadastrousuario.js" defer></script>
+    <script src="../JS/carrinho/carrinho.js" defer></script>
 
 </head>
 
 <body>
-    <table id="tabela">
-        <thead>
-            <th scope="col">Username</th>
-            <th scope="col">Senha</th>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Nome do Produto</th>
+                <th scope="col">Preço Unitário</th>
+                <th scope="col">Valor Final</th>
+            </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>A</td>
-                <td>B</td>
-            </tr>
+        <tbody id="corpoCarrinho">
+
         </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input id="iuser">
-                </td>
-                <td>
-                    <input id="isenha">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="100%">
-                    <button onclick="inserir_usuario()">Inserir</button>
-                </td>
-            </tr>
-        </tfoot>
     </table>
+    <h2 id="preçoTotal"></h2>
+
+    <label for="pagamento">Escolha a forma de pagamento:</label>
+
+    <select name="pagamento" id="formaPagamento">
+        <option value="dinheiro">Dinheiro</option>
+        <option value="pix">PIX</option>
+        <option value="credito">Crédito</option>
+        <option value="debito">Débito</option>
+    </select>
+    <br>
+
+    <button id="confirmarPreco" onclick="ConfirmarCompra()">Confirmar</button>
+    <button onclick="irMenu()">Voltar</button>
 </body>
 
 </html>

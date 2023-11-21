@@ -42,8 +42,12 @@ public class Bridge {
         GUI.trocarTela("cadastrousuario");
     }
 
-     public void acessar_carrinho() throws IOException {
+    public void acessar_carrinho() throws IOException {
         GUI.trocarTela("carrinho");
+    }
+
+    public void acessar_menu() throws IOException {
+        GUI.trocarTela("menu");
     }
 
     public String ler_usuarios() throws JsonProcessingException, SQLException, InterruptedException {
@@ -83,14 +87,14 @@ public class Bridge {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.InserirProduto(nomeProduto, categoriaID, custoIngredientes, margemLucro, precoFinal);
     }
-    
-    public void excluir_produto(Integer id_prod) throws InterruptedException, SQLException{
+
+    public void excluir_produto(Integer id_prod) throws InterruptedException, SQLException {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.excluirProduto(id_prod);
     }
-    
-    
-    public void alterar_produto(String nomeProd, Integer id_categoria, Double custoIngred, Double margemLucro, Double precoFinal, Integer id) throws InterruptedException, SQLException{
+
+    public void alterar_produto(String nomeProd, Integer id_categoria, Double custoIngred, Double margemLucro,
+            Double precoFinal, Integer id) throws InterruptedException, SQLException {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.alterarProduto(nomeProd, id_categoria, custoIngred, margemLucro, precoFinal, id);
     }
@@ -113,13 +117,13 @@ public class Bridge {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         categoriaDAO.InserirCategoria(nomeCategoria);
     }
-    
-    public void excluir_categoria(Integer id_cat) throws InterruptedException, SQLException{
+
+    public void excluir_categoria(Integer id_cat) throws InterruptedException, SQLException {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         categoriaDAO.excluirCategoria(id_cat);
     }
-    
-    public void alterar_categoria(String nome_cat, Integer id_cat) throws InterruptedException, SQLException{
+
+    public void alterar_categoria(String nome_cat, Integer id_cat) throws InterruptedException, SQLException {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         categoriaDAO.alterarCategoria(nome_cat, id_cat);
     }
@@ -136,24 +140,24 @@ public class Bridge {
 
         return json;
     }
-    
+
     public void inserir_ingrediente(String nomeIngred, Double precoUnit) throws SQLException, InterruptedException {
 
         IngredienteDAO ingredienteDAO = new IngredienteDAO();
         ingredienteDAO.inserirIngrediente(nomeIngred, precoUnit);
     }
-    
-    public void excluir_ingrediente(Integer id_ingred) throws InterruptedException, SQLException{
+
+    public void excluir_ingrediente(Integer id_ingred) throws InterruptedException, SQLException {
         IngredienteDAO ingredienteDAO = new IngredienteDAO();
         ingredienteDAO.excluirIngrediente(id_ingred);
     }
-    
-    public void alterar_ingrediente(String nome_ingred, Double precoUnit, Integer id_ingred) throws InterruptedException, SQLException{
+
+    public void alterar_ingrediente(String nome_ingred, Double precoUnit, Integer id_ingred)
+            throws InterruptedException, SQLException {
         IngredienteDAO ingredienteDAO = new IngredienteDAO();
         ingredienteDAO.alterarIngrediente(nome_ingred, precoUnit, id_ingred);
     }
-    
-    
+
     // *********************** CARRINHO
     public void adicionar_carrinho(String id) throws SQLException, InterruptedException {
         Carrinho.adicionarProduto(id);
@@ -166,12 +170,16 @@ public class Bridge {
     public String ler_carrinho() throws Exception {
 
         List<CarrinhoModel> lista = new ArrayList<>();
-    
+
         lista = Carrinho.lerCarrinho();
-    
+
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
-           
+
         return json;
+    }
+
+    public void confirmar_carrinho(String formaPagamento) {
+        // ..
     }
 }

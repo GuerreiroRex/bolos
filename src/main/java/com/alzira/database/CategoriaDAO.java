@@ -37,5 +37,25 @@ public class CategoriaDAO {
         Database.Desconectar();
         
         return lista;
-    }  
+    }
+    
+    public void excluirCategoria(Integer id_cat) throws InterruptedException, SQLException{
+        Database.Conectar();
+
+        try {
+            Database.Executar("DELETE FROM CATEGORIAS WHERE CATEGORIAID = " + id_cat);
+        } catch (Exception e) {
+            System.out.println("CategoriaDAO excluir" + e);
+        }
+    }
+    
+    public void alterarCategoria(String nomeCategoria, Integer id_categoria) throws InterruptedException, SQLException{
+        Database.Conectar();
+        
+        try{
+            Database.Executar("UPDATE CATEGORIAS SET NOMECATEGORIA = '" + nomeCategoria + "' WHERE CATEGORIAID = '" + id_categoria + "' ");
+        } catch (Exception e) {
+            System.out.println("CategoriaDAO alterar" + e);
+        }
+    }
 }

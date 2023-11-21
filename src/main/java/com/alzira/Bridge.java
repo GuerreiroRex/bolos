@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alzira.database.CategoriaDAO;
+import com.alzira.database.IngredienteDAO;
 import com.alzira.database.ProdutoDAO;
 import com.alzira.database.UsuarioDAO;
 import com.alzira.model.CategoriaModel;
 import com.alzira.model.ProdutoModel;
 import com.alzira.model.CarrinhoModel;
+import com.alzira.model.IngredienteModel;
 import com.alzira.model.Usuario;
 import com.alzira.task.loginTask;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -81,6 +83,17 @@ public class Bridge {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.InserirProduto(nomeProduto, categoriaID, custoIngredientes, margemLucro, precoFinal);
     }
+    
+    public void excluir_produto(Integer id_prod) throws InterruptedException, SQLException{
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        produtoDAO.excluirProduto(id_prod);
+    }
+    
+    
+    public void alterar_produto(String nomeProd, Integer id_categoria, Double custoIngred, Double margemLucro, Double precoFinal, Integer id) throws InterruptedException, SQLException{
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        produtoDAO.alterarProduto(nomeProd, id_categoria, custoIngred, margemLucro, precoFinal, id);
+    }
 
     // *********************** CATEGORIA
     public String ler_categorias() throws JsonProcessingException, SQLException, InterruptedException {
@@ -100,7 +113,47 @@ public class Bridge {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         categoriaDAO.InserirCategoria(nomeCategoria);
     }
+    
+    public void excluir_categoria(Integer id_cat) throws InterruptedException, SQLException{
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        categoriaDAO.excluirCategoria(id_cat);
+    }
+    
+    public void alterar_categoria(String nome_cat, Integer id_cat) throws InterruptedException, SQLException{
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        categoriaDAO.alterarCategoria(nome_cat, id_cat);
+    }
 
+    // *********************** INGREDIENTE
+    public String ler_ingredientes() throws JsonProcessingException, SQLException, InterruptedException {
+        List<IngredienteModel> lista = new ArrayList<>();
+
+        IngredienteDAO ingredienteDAO = new IngredienteDAO();
+        lista = ingredienteDAO.execSelect();
+
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(lista);
+
+        return json;
+    }
+    
+    public void inserir_ingrediente(String nomeIngred, Double precoUnit) throws SQLException, InterruptedException {
+
+        IngredienteDAO ingredienteDAO = new IngredienteDAO();
+        ingredienteDAO.inserirIngrediente(nomeIngred, precoUnit);
+    }
+    
+    public void excluir_ingrediente(Integer id_ingred) throws InterruptedException, SQLException{
+        IngredienteDAO ingredienteDAO = new IngredienteDAO();
+        ingredienteDAO.excluirIngrediente(id_ingred);
+    }
+    
+    public void alterar_ingrediente(String nome_ingred, Double precoUnit, Integer id_ingred) throws InterruptedException, SQLException{
+        IngredienteDAO ingredienteDAO = new IngredienteDAO();
+        ingredienteDAO.alterarIngrediente(nome_ingred, precoUnit, id_ingred);
+    }
+    
+    
     // *********************** CARRINHO
     public void adicionar_carrinho(String id) throws SQLException, InterruptedException {
         Carrinho.adicionarProduto(id);

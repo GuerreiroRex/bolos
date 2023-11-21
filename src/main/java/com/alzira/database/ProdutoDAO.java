@@ -96,5 +96,25 @@ public class ProdutoDAO {
         Database.Desconectar();
         
         return lista;
-    }  
+    }
+    
+    public void excluirProduto(Integer id_prod) throws InterruptedException, SQLException{
+        Database.Conectar();
+
+        try {
+            Database.Executar("DELETE FROM PRODUTOS WHERE PRODUTOID = " + id_prod);
+        } catch (Exception e) {
+            System.out.println("ProdutoDAO excluir" + e);
+        }
+    }
+    public void alterarProduto(String nomeProd, Integer id_categoria, Double custoIngred, Double margemLucro, Double precoFinal, Integer id) throws InterruptedException, SQLException{
+        Database.Conectar();
+        
+        try{
+            Database.Executar("UPDATE PRODUTOS SET NOMEPRODUTO = '" + nomeProd + "', CATEGORIAID = '" + id_categoria + "', CUSTOINGREDIENTES = '" + custoIngred + "',"
+                    + " MARGEMLUCRO = '" + margemLucro + "', PRECOFINAL = '" + precoFinal + " WHERE PRODUTOID = '" + id + "' ");
+        } catch (Exception e) {
+            System.out.println("ProdutoDAO alterar" + e);
+        }
+    }
 }

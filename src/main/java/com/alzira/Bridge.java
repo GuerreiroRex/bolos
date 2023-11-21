@@ -8,7 +8,6 @@ import java.util.List;
 import com.alzira.database.CategoriaDAO;
 import com.alzira.database.ProdutoDAO;
 import com.alzira.database.UsuarioDAO;
-import com.alzira.database.CarrinhoDAO;
 import com.alzira.model.CategoriaModel;
 import com.alzira.model.ProdutoModel;
 import com.alzira.model.CarrinhoModel;
@@ -111,15 +110,15 @@ public class Bridge {
         Carrinho.removerProduto(id);
     }
 
-    public String ler_carrinho() throws JsonProcessingException,SQLException, InterruptedException {
+    public String ler_carrinho() throws Exception {
+
         List<CarrinhoModel> lista = new ArrayList<>();
     
-        CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
-        lista = carrinhoDAO.execSelect();
+        lista = Carrinho.lerCarrinho();
     
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lista);
-   
+           
         return json;
     }
 }

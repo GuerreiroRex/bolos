@@ -1,5 +1,6 @@
 package com.alzira.database;
 
+import com.alzira.model.ProdutoCarrinhoModel;
 import com.alzira.model.ProdutoModel;
 import com.alzira.model.ProdutoViewModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,17 +22,39 @@ public class ProdutoDAO {
         }
         //Database.Desconectar();
     }
-    
+
+   public static List<ProdutoCarrinhoModel> consultaProduto(Integer produtoId) throws Exception {
+
+        List<ProdutoCarrinhoModel> lista = new ArrayList<>();
+
+        Database.Conectar();
+        ResultSet resultado = Database.Ler("SELECT * FROM PRODUTOS WHERE PRODUTOID = '" + produtoId + "'");
+        
+        Integer db_id = null;
+        String db_nomeProduto = null;
+        Double db_precoUnitario = null;
+
+        while (resultado.next()) {            
+            db_id = resultado.getInt("produtoid");          
+            db_nomeProduto = resultado.getString("nomeproduto");
+            db_precoUnitario = resultado.getDouble("precofinal");
+                        
+            lista.add(new ProdutoCarrinhoModel(db_id, db_nomeProduto, db_precoUnitario));
+        }
+        
+        Database.Desconectar();
+        
+        return lista;
+    }  
+
     public List execSelect() throws JsonProcessingException, SQLException, InterruptedException {
 
         List<ProdutoViewModel> lista = new ArrayList<>();
         //List<String> listaIngrediente = new ArrayList<>();
-        List<Integer> listaID = new ArrayList<>(); //essa lista serve para comparar se o ID vindo do banco j· foi inserido na lista que È retornada.
+        List<Integer> listaID = new ArrayList<>(); //essa lista serve para comparar se o ID vindo do banco j√° foi inserido na lista que √© retornada.
 
         Database.Conectar();
-        ResultSet resultado = Database.Ler("SELECT * FROM VW_VISUALIZAPRODUTO");
-        
-        
+        ResultSet resultado = Database.Ler("SELECT * FROM VW_VISUALIZAPRODUTO");              
 
         Integer db_id = null;
         String db_nomeProduto = null;
@@ -67,8 +90,7 @@ public class ProdutoDAO {
                 listaIngrediente.add(db_nomeIngrediente);
             }
             
-            lista.add(new ProdutoViewModel(db_id, db_nomeProduto, db_categoriaID,db_nomeCategoria, db_custoIngrediente, db_margemLucro, db_precoFinal, listaIngrediente));
-            
+            lista.add(new ProdutoViewModel(db_id, db_nomeProduto, db_categoriaID,db_nomeCategoria, db_custoIngrediente, db_margemLucro, db_precoFinal, listaIngrediente));            
         }
         
         Database.Desconectar();

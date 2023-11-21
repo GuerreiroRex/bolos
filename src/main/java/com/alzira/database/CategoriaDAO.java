@@ -17,7 +17,6 @@ public class CategoriaDAO {
         } catch (Exception e) {
             System.out.println("CategoriaDAO" + e);
         }
-        //Database.Desconectar();
     }
     
     public List execSelect() throws JsonProcessingException, SQLException, InterruptedException {

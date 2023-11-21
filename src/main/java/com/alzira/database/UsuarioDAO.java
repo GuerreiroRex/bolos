@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class UsuarioDAO {
     
     public void InserirUsuario(String nome, String senha) throws InterruptedException, SQLException{

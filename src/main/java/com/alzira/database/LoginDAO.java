@@ -21,18 +21,6 @@ public class LoginDAO {
         
         ResultSet rs = pstm.executeQuery();
         
-//        String db_username = "null";
-//        String db_senha = "null";
-//        
-//        while (resultado.next()) {
-//            db_username = resultado.getString("username");
-//            db_senha = resultado.getString("senha");
-//
-//            if ((db_username.equals(usuarioInput) & db_senha.equals(senhaInput))) {
-//                return true;
-//            }
-//        }
-//        return false;
         return rs;
     }
 }

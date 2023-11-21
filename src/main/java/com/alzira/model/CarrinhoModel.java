@@ -3,23 +3,12 @@ package com.alzira.model;
 import java.util.List;
 
 public class CarrinhoModel {
-    public Integer compraID;
     public List produto;
     public Double valorTotalCompra;
 
-    public CarrinhoModel(Integer compraID, List produto,
-    Double valorTotalCompra) {
-        this.compraID = compraID;
+    public CarrinhoModel(List produto, Double valorTotalCompra) {
         this.produto = produto;
         this.valorTotalCompra = valorTotalCompra;
-    }
-
-    public Integer getCompraID() {
-        return compraID;
-    }
-
-    public void setCompraID(Integer compraID) {
-        this.compraID = compraID;
     }
 
     public List getProduto() {

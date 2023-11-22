@@ -110,16 +110,11 @@ header {
     text-align: center;
 }
 
+#filtro {
+    width: 100%;
+    text-align: center;
+}
+
 .invisivel {
-  display: none;  
+  display: none;
 }
-
-/*
-.barra-adicionar {
-    background-color: green;
-}
-
-.barra-remover {
-    background-color: red;
-}
-*/

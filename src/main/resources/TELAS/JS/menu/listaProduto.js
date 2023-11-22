@@ -96,8 +96,7 @@ async function listar_produto(nova_lista) {
         let preco = document.createElement("p");
         let barraControle = montarBarraControle(elemento);
 
-
-
+        titulo.id = "nomeProduto"
         titulo.innerHTML = elemento.nomeProduto;
         preco.innerHTML = "R$ " + elemento.precoFinal;
 
@@ -130,4 +129,30 @@ function carregarMaisProdutos() {
 $(window).ready(function () {
     lista = JSON.parse(Bridge.ler_produtos());
     paginar();
+    filtrar();
 });
+
+
+function filtrar() {
+    let filtro = $("#filtro").val().toString();
+
+    if (filtro == "") {
+        $("#container").forEach(elemento => {
+            $(elemento).removeClass("invisivel");
+        });
+    } else {
+        $("#container > .divisor-produto").each(function () {
+            let produto = $(this).find("#nomeProduto");
+            let posicao = produto.text().toUpperCase().indexOf(filtro.toUpperCase())
+
+            $("body").append("<br><p> produto:" + produto.text() + "</p>");
+            $("body").append("<br><p> posicao:" + posicao + "</p>");
+
+            if (posicao >= 0) {
+                $(this).removeClass("invisivel");
+            } else {
+                $(this).addClass("invisivel");
+            }
+        });
+    }
+}

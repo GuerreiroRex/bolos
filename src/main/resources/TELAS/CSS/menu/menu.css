@@ -110,6 +110,10 @@ header {
     text-align: center;
 }
 
+.invisivel {
+  display: none;  
+}
+
 /*
 .barra-adicionar {
     background-color: green;

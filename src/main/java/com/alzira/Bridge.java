@@ -62,10 +62,10 @@ public class Bridge {
         return json;
     }
 
-    public void inserir_usuario(String username, String senha) throws SQLException, InterruptedException {
+    public void inserir_usuario(String iuser, String isenha) throws SQLException, InterruptedException {
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        usuarioDAO.InserirUsuario(username, senha);
+        usuarioDAO.InserirUsuario(iuser, isenha);
     }
 
     // *********************** PRODUTO

@@ -7,6 +7,6 @@ $(window).ready(function () {
 })
 
 function inserir_usuario() {
-    Bridge.inserir_usuario($("iuser").val(), $("isenha").val());
+    Bridge.inserir_usuario($("#iuser").val(), $("#isenha").val());
     window.location.reload();
 }
